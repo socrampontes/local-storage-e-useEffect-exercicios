@@ -18,18 +18,13 @@ Como você já viu no código durante a aula, as funções responsáveis por faz
 
 ## **1) Criar tarefas**
 
-💡  Dicas
-    
-Antes de começarmos os passos para criar essa funcionalidade, pedimos para que você de uma olhada nesse video que o Darvas fez, em que ele ensina a fazer manipulação de array e faz um exemplo muitíssimo parecido de criação de posts:
-    
-[Video aqui](https://vimeo.com/410838254/6ea0a53200)
-    
-- O usuário deve conseguir digitar uma tarefa no input, clicar no botão `Adicionar` e isso deve resultar em uma nova tarefa renderizada na tela, de acordo com o que foi digitado no input.
-- Para isso, primeiro, vc deve conseguir fazer o controle do input, por meio da técnica de input controlado do React. Já ensinamos vcs a fazerem isso, mais precisamente, na aula de quarta feira da semana passada.
-- A função que vai fazer o input controlado funcionar já está declarada, restando apenas preenchê-la. É a `onChangeInput`. Além disso, o valor do estado que vai guardar o input controlado também já está criado, é o elemento `inputValue` do estado.
- - Se vc não se lembra de como criar um input controlado, não tem problema. Isso é mais do que esperado. De uma revisada nos slides e nos exercícios feitos na aula de quarta passada. Além disso, estamos no canal de dúvidas para te ajudar.
-- Depois de fazer o input controlado funcionar, é hora de implementar a funcionalidade de criar a tarefa. Essa funcionalidade vai ficar a cargo da função `criarTarefa`.
- - Dentro da função `criarTarefa`, vc vai precisar de algumas coisas para conseguir fazer a criação  de uma tarefa dar certo:
+- 💡  Dicas
+	- O usuário deve conseguir digitar uma tarefa no input, clicar no botão `Adicionar` e isso deve resultar em uma nova tarefa renderizada na tela, de acordo com o que foi digitado no input.
+	- Para isso, primeiro, vc deve conseguir fazer o controle do input, por meio da técnica de input controlado do React. Já ensinamos vcs a fazerem isso na aula de inputs controlados.
+	- A função que vai fazer o input controlado funcionar já está declarada, restando apenas preenchê-la. É a `onChangeInput`. Além disso, o valor do estado que vai guardar o input controlado também já está criado, é o elemento `inputValue` do estado.
+ 	- Se vc não se lembra de como criar um input controlado, não tem problema. Isso é mais do que esperado. De uma revisada nos slides e nos exercícios feitos na aula de inputs controlados. Além disso, estamos no canal de dúvidas para te ajudar.
+	- Depois de fazer o input controlado funcionar, é hora de implementar a funcionalidade de criar a tarefa. Essa funcionalidade vai ficar a cargo da função `criarTarefa`.
+ 	- Dentro da função `criarTarefa`, vc vai precisar de algumas coisas para conseguir fazer a criação  de uma tarefa dar certo:
 Que coisas são essas?
 
 - **PRIMEIRO**: uma constante que guarda o valor de uma nova tarefa que você vai criar. Essa constante precisa ter o mesmo formato das tarefas que já estão criadas no estado. Ou seja, precisa ser um objeto com esse formato:
@@ -42,7 +37,7 @@ Que coisas são essas?
     }
     ```
                 
-- **SEGUNDO**: uma lógica de adicionar essa nova tarefa, que está guarda na constante que vc criou no primeiro passo, em uma cópia de um array do estado chamado `tarefas`. Lembrando que, para isso você pode usar a lógica do spread (desestruturação): `const copiaDoEstado = [...this.state.tarefas, novaTarefa]` ou usar a lógica do push:
+- **SEGUNDO**: uma lógica de adicionar essa nova tarefa, que está guarda na constante que vc criou no primeiro passo, em uma cópia de um array do estado chamado `tarefas`. Lembrando que, para isso você pode usar a lógica do spread (desestruturação): `const copiaDoEstado = [...tarefas, novaTarefa]` ou usar a lógica do push:
             
     ```jsx
     const copiaDoEstado = [...tarefas]
@@ -55,23 +50,18 @@ Que coisas são essas?
 
 
 ## **2) Alterar tarefas como completas ou incompleta**
-
-💡  Dicas
   
-Antes de começarmos os passos para criar essa funcionalidade, pedimos para que você de uma olhada nesse video que o Darvas fez, em que ele ensina a fazer manipulação de array e faz um exemplo muitíssimo parecido de alterar a curtida/descurtida de um post (no minuto 8.38):
-[Video aqui](https://vimeo.com/410838254/6ea0a53200) 
-  
+- 💡  Dicas
   - O usuário, ao clicar em uma tarefa específica, deve alterar a propriedade `completa` da tarefa que está armazenada no array do estado (de true para false ou de false para true).
   - Para isso, vc vai usar a função `selectTarefa`, que já está criada, mas ainda não preenchida.
   - Essa função recebe como parâmetro o `id` da tarefa que está sendo clicada. Com esse id, que é único para cada tarefa, vc pode "mapear" (usar a função `map`) todo o array e modificar especificadamente a tarefa clicada, usando de um `if/else` para fazer a modificação apenas quando o id da tarefa que está vindo do map for igual o id que está vindo de parâmetro da função `selectTarefa`.
-  - Se isso ainda está confuso pra vc, não tem problema, no vídeo que a gente indicou logo acima, o Darvas faz exatamente o que a gente tentou explicar de forma escrita. É a partir do minuto 8.38. De uma olhadinha lá.
-  - E se ainda não tiver ficado claro, abra uma thread no canal de dúvidas, que instrutore(a)s e colegas irão te ajuda.
+  - Se isso ainda está confuso pra vc, não tem problema, abra uma thread no canal de dúvidas, que instrutore(a)s e colegas irão te ajuda.
   
 
 ## **3) Filtrar as tarefas por completas e pendentes**
 
 - 💡  Dicas
-    - No passo 4 da etapa de leitura de código, vc viu que a mudança da propriedade `filtro` do estado para `"completas"` ou `"pendentes"` faz com que as tarefas sejam filtradas para aparecer na tela apenas aquelas condizentes com o valor do estado.
+    - Veja que a mudança da propriedade `filtro` do estado para `"completas"` ou `"pendentes"` faz com que as tarefas sejam filtradas para aparecer na tela apenas aquelas condizentes com o valor do estado.
     - Ou seja, se vc muda o valor de `filtro` no estado para `completas`, aparecem apenas as tarefas completas, e se vc muda para `pendentes`, aparecem apenas as tarefas pendentes.
     - Portanto, a funcionalidade já está quase pronta. Falta apenas uma forma de fazer isso pela interface e não só pelo código.
     - A função responsável por isso é a `onChangeFilter`, que já está criada, mas ainda não preenchida.
