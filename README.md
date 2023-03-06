@@ -9,7 +9,7 @@ Para o exercício de hoje, vamos utilizar um template! Este template pode ser o 
 
 Para executar este exercício, você pode criar uma nova aplicação React, utilizar o **CodeSandbox** ou usar este template do repositório.
 - Caso use este template, lembre-se de dar um `npm install` assim que baixar! 
-- Caso queira executar remotamente, pode usar esse template aqui: https://stackblitz.com/edit/vitejs-vite-t3rh3c?file=package.json
+- Caso queira executar remotamente, pode usar esse template aqui: https://codesandbox.io/s/localstorage-e-useeffect-exercicios-s62wx3
 
 Caso queira criar uma nova aplicação React, basta copiar os conteúdos deste repositório e colar dentro da pasta do seu projeto criado.
 
